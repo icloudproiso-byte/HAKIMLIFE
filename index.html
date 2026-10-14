@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAKIMLIFE | Сайти шахсии ман</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f5f9;
+    color: #222;
+}
+
+header {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+    font-size: 17px;
+}
+
+nav {
+    background: #fff;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px #ddd;
+}
+
+nav a {
+    display: inline-block;
+    color: #172554;
+    text-decoration: none;
+    margin: 7px 12px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #ddd;
+}
+
+.card h2 {
+    color: #172554;
+}
+
+.card a {
+    color: #2563eb;
+}
+
+footer {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 35px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>HAKIMLIFE</h1>
+    <p>Хуш омадед ба сайти шахсии ман!</p>
+</header>
+
+<nav>
+    <a href="#home">Асосӣ</a>
+    <a href="#about">Дар бораи ман</a>
+    <a href="#services">Хизматрасонӣ</a>
+    <a href="#contact">Тамос</a>
+</nav>
+
+<div class="container" id="home">
+
+    <div class="search-box">
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Ҷустуҷӯ кунед..."
+            oninput="searchSite()">
+        <button onclick="searchSite()">Поиск</button>
+    </div>
+
+    <section class="card" id="about">
+        <h2>Дар бораи ман</h2>
+        <p>Хуш омадед ба сайти шахсии HAKIMLIFE.</p>
+        <p>Дар ин ҷо метавонед маълумот, ҳуҷҷатҳо ва маводи гуногунро ҷойгир кунед.</p>
+    </section>
+
+    <section class="card" id="services">
+        <h2>Мавод ва хизматрасонӣ</h2>
+        <p>Дар оянда дар ин ҷо ҳуҷҷатҳои Word, PDF, суратҳо ва дигар мавод ҷойгир карда мешаванд.</p>
+    </section>
+
+    <section class="card" id="contact">
+        <h2>Тамос бо ман</h2>
+        <p>Рақами телефон ва шабакаҳои иҷтимоии худро баъдтар илова мекунем.</p>
+    </section>
+
+    <p id="noResults" style="display:none;text-align:center;">
+        Натиҷа ёфт нашуд.
+    </p>
+
+</div>
+
+<footer>
+    <p>© 2026 HAKIMLIFE | Ҳамаи ҳуқуқҳо ҳифз шудаанд.</p>
+</footer>
+
+<script>
+function searchSite() {
+    const query = document.getElementById("searchInput")
+        .value.toLowerCase().trim();
+
+    const cards = document.querySelectorAll(".card");
+    let found = 0;
+
+    cards.forEach(function(card) {
+        const text = card.innerText.toLowerCase();
+        const match = text.includes(query);
+
+        card.style.display = match ? "block" : "none";
+
+        if (match) found++;
+    });
+
+    document.getElementById("noResults").style.display =
+        found === 0 ? "block" : "none";
+}
+</script>
+
+</body>
+</html>
